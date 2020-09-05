@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var button: UIButton!
+    var isStart: Bool = false
     let recognizer = SpeechRecognizer()
 
     override func viewDidLoad() {
@@ -28,7 +29,17 @@ class ViewController: UIViewController {
 
 extension ViewController {
     @IBAction func buttonTapped(_ sender: Any) {
-        print("tap")
+        do {
+            if isStart {
+                recognizer.stop()
+            } else {
+                try recognizer.start {_ in
+                    print("ok")
+                }
+            }
+        } catch {
+            
+        }
     }
 }
 

@@ -30,7 +30,7 @@ class SpeechRecognizer {
     }
     
     // start the speech recognition session
-    func start(completion: @escaping (Bool)->Void) throws {
+    func start(completion: @escaping (String?, Error?)->Void) throws {
         func cancelIfOldSessionAlive() {
             if let recognitionTask = self.recognitionTask {
                 recognitionTask.cancel()
@@ -52,31 +52,43 @@ class SpeechRecognizer {
             return audioSession
         }
         
+        func setToSendVoiceToRecognizer() {
+            let inputNode = audioEngine.inputNode
+            let recordingFormat = inputNode.outputFormat(forBus: 0)
+            inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { [weak self] (buffer, time) in
+                self?.recognitionRequest.append(buffer)
+            }
+        }
+        
+        func buildRecognitionTask() {
+            recognitionTask = recognizer.recognitionTask(with: recognitionRequest, resultHandler: { (result, error) in
+                if let error = error {
+                    completion(nil, error)
+                }
+                guard let str = result?.bestTranscription.formattedString else {
+                    return
+                }
+                completion(str, nil)
+            })
+        }
+
         cancelIfOldSessionAlive()
         recognitionRequest = buildRecognitionRequest()
         _ = try buildAudioSession()
-
-        let inputNode = audioEngine.inputNode
-        let recordingFormat = inputNode.outputFormat(forBus: 0)
-        inputNode.installTap(onBus: 0, bufferSize: 2048, format: recordingFormat) { [weak self] (buffer, time) in
-            self?.recognitionRequest.append(buffer)
-        }
+        setToSendVoiceToRecognizer()
         audioEngine.prepare()
         try audioEngine.start()
-
-        recognitionTask = recognizer.recognitionTask(with: recognitionRequest, resultHandler: { (result, error) in
-            if let error = error {
-                print("\(error)")
-            } else {
-                print(result?.bestTranscription.formattedString)
-            }
-        })
+        buildRecognitionTask()
     }
 
     // stop the speech recognition session
     func stop() {
-      audioEngine.stop()
-      audioEngine.inputNode.removeTap(onBus: 0)
-      recognitionRequest.endAudio()
+        guard audioEngine != nil ,recognitionRequest != nil else {
+            assertionFailure("logic error")
+            return
+        }
+        audioEngine.stop()
+        audioEngine.inputNode.removeTap(onBus: 0)
+        recognitionRequest.endAudio()
     }
 }

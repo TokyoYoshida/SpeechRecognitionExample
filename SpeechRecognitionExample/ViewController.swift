@@ -9,7 +9,9 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var start: UIButton!
+    @IBOutlet weak var stop: UIButton!
+    @IBOutlet weak var textView: UITextView!
     var isStart: Bool = false
     let recognizer = SpeechRecognizer()
 
@@ -21,25 +23,26 @@ class ViewController: UIViewController {
         super.viewWillAppear(animated)
         recognizer.requestAuthorization { result in
             if result == false {
-                self.button.isEnabled = false
+                DispatchQueue.main.async {
+                    self.start.isEnabled = false
+                    self.stop.isEnabled = false
+                }
             }
         }
     }
 }
 
 extension ViewController {
-    @IBAction func buttonTapped(_ sender: Any) {
-        do {
-            if isStart {
-                recognizer.stop()
-            } else {
-                try recognizer.start {_ in
-                    print("ok")
-                }
+    @IBAction func startTapped(_ sender: Any) {
+        try! recognizer.start {[weak self] str, error in
+            DispatchQueue.main.async {
+                self?.textView.text = str
             }
-        } catch {
-            
         }
+    }
+
+    @IBAction func stopTapped(_ sender: Any) {
+        recognizer.stop()
     }
 }
 

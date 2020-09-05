@@ -15,6 +15,7 @@
 		1EDD2DA22503684F00A842C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EDD2DA02503684F00A842C3 /* LaunchScreen.storyboard */; };
 		1EDD2DAD2503684F00A842C3 /* SpeechRecognitionExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDD2DAC2503684F00A842C3 /* SpeechRecognitionExampleTests.swift */; };
 		1EDD2DB82503684F00A842C3 /* SpeechRecognitionExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDD2DB72503684F00A842C3 /* SpeechRecognitionExampleUITests.swift */; };
+		1EDD2DC625036ADD00A842C3 /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDD2DC525036ADD00A842C3 /* SpeechRecognizer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		1EDD2DB32503684F00A842C3 /* SpeechRecognitionExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpeechRecognitionExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EDD2DB72503684F00A842C3 /* SpeechRecognitionExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognitionExampleUITests.swift; sourceTree = "<group>"; };
 		1EDD2DB92503684F00A842C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1EDD2DC525036ADD00A842C3 /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				1EDD2D952503684D00A842C3 /* AppDelegate.swift */,
 				1EDD2D972503684D00A842C3 /* SceneDelegate.swift */,
 				1EDD2D992503684D00A842C3 /* ViewController.swift */,
+				1EDD2DC525036ADD00A842C3 /* SpeechRecognizer.swift */,
 				1EDD2D9B2503684D00A842C3 /* Main.storyboard */,
 				1EDD2D9E2503684F00A842C3 /* Assets.xcassets */,
 				1EDD2DA02503684F00A842C3 /* LaunchScreen.storyboard */,
@@ -262,6 +265,7 @@
 				1EDD2D9A2503684D00A842C3 /* ViewController.swift in Sources */,
 				1EDD2D962503684D00A842C3 /* AppDelegate.swift in Sources */,
 				1EDD2D982503684D00A842C3 /* SceneDelegate.swift in Sources */,
+				1EDD2DC625036ADD00A842C3 /* SpeechRecognizer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -23,7 +23,7 @@ Privacy - Speech Recognition Usage Description
 for example.
 ```swift
 class ViewController: UIViewController {
-    let recognizer = SpeechRecognizer()
+    let recognizer = SpeechRecognizer(locale: "en_US") //　If you want Japanese, please use "ja_JP"
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

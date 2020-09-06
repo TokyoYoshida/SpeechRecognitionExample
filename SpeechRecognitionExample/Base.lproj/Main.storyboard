@@ -15,23 +15,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fob-St-XrQ" userLabel="Start Button">
-                                <rect key="frame" x="153" y="94" width="108" height="30"/>
-                                <state key="normal" title="Start Recording"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fob-St-XrQ" userLabel="Button">
+                                <rect key="frame" x="190" y="94" width="34" height="30"/>
+                                <state key="normal" title="Start"/>
                                 <connections>
                                     <action selector="startTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ehh-UG-VUv"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rqx-VX-gOJ" userLabel="Stop Button">
-                                <rect key="frame" x="154" y="132" width="106" height="30"/>
-                                <state key="normal" title="Stop Recording"/>
-                                <connections>
-                                    <action selector="startTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MdK-7m-9w7"/>
-                                    <action selector="stopTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="m6j-9x-KFn"/>
-                                </connections>
-                            </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="This area shows the recognized speech" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Qlv-ga-P68">
-                                <rect key="frame" x="8" y="194" width="398" height="660"/>
+                                <rect key="frame" x="8" y="156" width="398" height="698"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -45,20 +37,17 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Qlv-ga-P68" firstAttribute="top" secondItem="rqx-VX-gOJ" secondAttribute="bottom" constant="32" id="0cn-ak-BDI"/>
+                            <constraint firstItem="Qlv-ga-P68" firstAttribute="top" secondItem="fob-St-XrQ" secondAttribute="bottom" constant="32" id="BlM-2e-IFw"/>
                             <constraint firstItem="fob-St-XrQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="EhT-nU-EuA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Qlv-ga-P68" secondAttribute="trailing" constant="8" id="LcK-xG-q07"/>
-                            <constraint firstItem="rqx-VX-gOJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Myr-q3-CBx"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Qlv-ga-P68" secondAttribute="bottom" constant="8" id="UIr-2D-h7J"/>
                             <constraint firstItem="fob-St-XrQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="cti-4K-eZ4"/>
                             <constraint firstItem="Qlv-ga-P68" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="hgg-eQ-zuj"/>
-                            <constraint firstItem="rqx-VX-gOJ" firstAttribute="top" secondItem="fob-St-XrQ" secondAttribute="bottom" constant="8" id="jsz-Xy-8TT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="start" destination="fob-St-XrQ" id="y07-11-dc8"/>
-                        <outlet property="stop" destination="rqx-VX-gOJ" id="2dj-zJ-f8d"/>
+                        <outlet property="button" destination="fob-St-XrQ" id="y07-11-dc8"/>
                         <outlet property="textView" destination="Qlv-ga-P68" id="wYf-X5-vMZ"/>
                     </connections>
                 </viewController>

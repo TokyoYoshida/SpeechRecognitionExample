@@ -11,14 +11,15 @@ import Speech
 import AVFoundation
 
 class SpeechRecognizer {
-    let recognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "ja_JP"))!
+    let recognizer: SFSpeechRecognizer
     var audioEngine: AVAudioEngine!
     var recognitionRequest: SFSpeechAudioBufferRecognitionRequest!
     var recognitionTask: SFSpeechRecognitionTask?
     var isEnabled: Bool = false
     
-    init() {
+    init(locale: String="en_US") {
         audioEngine = AVAudioEngine()
+        recognizer = SFSpeechRecognizer(locale: Locale.init(identifier: locale))!
     }
     
     // Asks the user for privacy regarding microphone usage and speech recognition

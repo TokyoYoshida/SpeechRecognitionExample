@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var textView: UITextView!
     var isStart: Bool = false
-    let recognizer = SpeechRecognizer()
+    let recognizer = SpeechRecognizer(locale: "en_US") //　If you want Japanese, please use "ja_JP"
 
     override func viewDidLoad() {
         super.viewDidLoad()

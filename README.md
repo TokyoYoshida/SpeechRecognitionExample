@@ -1,8 +1,6 @@
 # SpeechRecognition Example
 Very Simple example and library for iOS Speech Recognition.
 
-<img width="300px" src="https://user-images.githubusercontent.com/16970578/92320489-c1f5f280-f05c-11ea-84cb-ca3d3413a0e6.gif">
-
 Example code.
 ```swift
 let recognizer = SpeechRecognizer()
@@ -10,6 +8,8 @@ try! recognizer.start {[weak self] str, error in
   print(str)
 }
 ```
+
+<img width="300px" style="border: medium solid #ff00ff" src="https://user-images.githubusercontent.com/16970578/92320489-c1f5f280-f05c-11ea-84cb-ca3d3413a0e6.gif">
 
 ## Use as library
 

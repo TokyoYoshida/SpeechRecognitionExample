@@ -9,7 +9,7 @@ try! recognizer.start {[weak self] str, error in
 }
 ```
 
-<img width="300px" style="border: medium solid #ff00ff" src="https://user-images.githubusercontent.com/16970578/92320489-c1f5f280-f05c-11ea-84cb-ca3d3413a0e6.gif">
+<img width="300px" src="https://user-images.githubusercontent.com/16970578/92320489-c1f5f280-f05c-11ea-84cb-ca3d3413a0e6.gif">
 
 ## Use as library
 
